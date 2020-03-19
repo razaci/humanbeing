@@ -1,0 +1,1755 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HUMAN BEING</title>
+<style type="text/css">
+    li { list-style: none;  margin: 0; }
+    p { margin: 0; }
+    span.foldopened { color: white; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: visible;
+    cursor:pointer; }
+
+
+    span.foldclosed { color: #666666; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: hidden;
+    cursor:pointer; }
+
+    span.foldspecial { color: #666666; font-size: xx-small; border-style: none solid solid none;
+    border-color: #CCCCCC; border-width: 1; font-family: sans-serif; padding: 0em 0.1em 0em 0.1em; background: #e0e0e0;
+    cursor:pointer; }
+
+    span.l { color: red; font-weight: bold; }
+
+    a.mapnode:link {text-decoration: none; color: black; }
+    a.mapnode:visited {text-decoration: none; color: black; }
+    a.mapnode:active {text-decoration: none; color: black; }
+    a.mapnode:hover {text-decoration: none; color: black; background: #eeeee0; }
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+
+<script type="text/javascript">
+   // Here we implement folding. It works fine with MSIE5.5, MSIE6.0 and
+   // Mozilla 0.9.6.
+
+   if (document.layers) {
+      //Netscape 4 specific code
+      pre = 'document.';
+      post = ''; }
+   if (document.getElementById) {
+      //Netscape 6 specific code
+      pre = 'document.getElementById("';
+      post = '").style'; }
+   if (document.all) {
+      //IE4+ specific code
+      pre = 'document.all.';
+      post = '.style'; }
+
+function layer_exists(layer) {
+   try {
+      eval(pre + layer + post);
+      return true; }
+   catch (error) {
+      return false; }}
+
+function show_layer(layer) {
+   eval(pre + layer + post).position = 'relative'; 
+   eval(pre + layer + post).visibility = 'visible'; }
+
+function hide_layer(layer) {
+   eval(pre + layer + post).visibility = 'hidden';
+   eval(pre + layer + post).position = 'absolute'; }
+
+function hide_folder(folder) {
+    hide_folding_layer(folder)
+    show_layer('show'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function show_folder(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_layer('show'+folder+'_'+i); }
+}
+function show_folder_completely(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+
+
+function hide_folding_layer(folder) {
+   var i;
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folding_layer(folder+'_'+i); }
+
+   hide_layer('hide'+folder);
+   hide_layer('show'+folder);
+   hide_layer('fold'+folder);
+
+   scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function fold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folder(folder+'_'+i); }
+}
+
+function unfold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+</script>
+<SPAN class="foldspecial" onclick="fold_document()">All +</SPAN>
+<SPAN class="foldspecial" onclick="unfold_document()">All -</SPAN>
+<p><span style="color: #000000;font-size: 166%;font-family: SansSerif, sans-serif; ">HUMAN BEING</span>
+<ul><li><span id="show1_1" class="foldclosed" onClick="show_folder('1_1')" style="POSITION: absolute">+</span> <span id="hide1_1" class="foldopened" onClick="hide_folder('1_1')">-</span>
+<span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">Brain</span>
+<ul id="fold1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1" class="foldclosed" onClick="show_folder('1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1" class="foldopened" onClick="hide_folder('1_1_1')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Input</span>
+<ul id="fold1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Sensory</span>
+<ul id="fold1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_1')">-</span>
+<span style="color: #111111;">Sight</span>
+<ul id="fold1_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_1_1')">-</span>
+<span style="color: #111111;">Retinal Receptor 1</span>
+<ul id="fold1_1_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">vision is the ability of the eye(s) to focus and detect images of visible light on the retina in each eye</span>
+<p><span style="color: #111111;">determine varying colors</span>
+<p><span style="color: #111111;">Hues</span>
+<p><span style="color: #111111;">Brightness</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_1_1_2" class="foldclosed" onClick="show_folder('1_1_1_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_2" class="foldopened" onClick="hide_folder('1_1_1_1_1_2')">-</span>
+<span style="color: #111111;">Retinal Receptor 2</span>
+<ul id="fold1_1_1_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Perception of brightness</span>
+
+</li>
+<li><span style="color: #111111;">Perception of color</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_1_3" class="foldclosed" onClick="show_folder('1_1_1_1_1_3')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_1_3" class="foldopened" onClick="hide_folder('1_1_1_1_1_3')">-</span>
+<span style="color: #111111;">Retinal Receptor 3</span>
+<ul id="fold1_1_1_1_1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Stereopsis</span>
+
+</li>
+<li><span style="color: #111111;">Arguably post procssing or</span>
+
+</li>
+<li><span style="color: #111111;">Previously learned information</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_2" class="foldclosed" onClick="show_folder('1_1_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2" class="foldopened" onClick="hide_folder('1_1_1_1_2')">-</span>
+<span style="color: #111111;">Hearing</span>
+<ul id="fold1_1_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_2_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_1')">-</span>
+<span style="color: #111111;">Inner ear</span>
+<ul id="fold1_1_1_1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Air</span>
+
+</li>
+<li><span id="show1_1_1_1_2_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_1_1')">-</span>
+<span style="color: #111111;">Vibration</span>
+<ul id="fold1_1_1_1_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_2_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_1_1_1')">-</span>
+<span style="color: #111111;">Hertz</span>
+<ul id="fold1_1_1_1_2_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Freqency or cycles per second</span>
+
+</li>
+<li><span style="color: #111111;">For humans, mechanical motion detection from 20 to 20,000 </span>
+
+</li>
+<li><span style="color: #111111;">Sound is a traveling wave which is an oscillation of pressure</span>
+
+</li>
+<li><span id="show1_1_1_1_2_1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_2_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_2_1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_2_1_1_1_1')">-</span>
+<span style="color: #111111;">Humans perceive frequency which can be measured in hertz</span>
+<ul id="fold1_1_1_1_2_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">An infant's ear is able to perceive frequencies ranging from 20 Hz to 20,000 Hz</span>
+
+</li>
+<li><span style="color: #111111;">Average adult human can hear sounds between 20 Hz and 16,000 Hz.</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Electromagnetic radiation</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_3" class="foldclosed" onClick="show_folder('1_1_1_1_3')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_3" class="foldopened" onClick="hide_folder('1_1_1_1_3')">-</span>
+<span style="color: #111111;">Taste</span>
+<ul id="fold1_1_1_1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_3_1" class="foldclosed" onClick="show_folder('1_1_1_1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_3_1" class="foldopened" onClick="hide_folder('1_1_1_1_3_1')">-</span>
+<span style="color: #111111;">Sweet</span>
+<ul id="fold1_1_1_1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span id="show1_1_1_1_3_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_3_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_3_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_3_1_1')">-</span>
+<span style="color: #111111;">Various compound sweetness</span>
+<ul id="fold1_1_1_1_3_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Lactose 	Disaccharide 		0.16
+<br>
+Maltose 	Disaccharide 		0.33 &#8211;&nbsp;0.45
+<br>
+Glucose 	Monosaccharide 	0.74 &#8211;&nbsp;0.8
+<br>
+Sucrose 	Disaccharide 		1.00 
+<br>
+Fructose 	Monosaccharide 	1.17 &#8211;&nbsp;1.75
+<br>
+Sodium cyclamate Sulfonate 		26
+<br>
+Aspartame 	Dipeptide methyl ester 	180 &#8211;&nbsp;250
+<br>
+Sodium saccharin Sulfonyl compound 	300 &#8211;&nbsp;675</span>
+</li>
+</ul><p><span id="show1_1_1_1_3_1_2" class="foldclosed" onClick="show_folder('1_1_1_1_3_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_3_1_2" class="foldopened" onClick="hide_folder('1_1_1_1_3_1_2')">-</span>
+<span style="color: #111111;">Chemosensory</span>
+<ul id="fold1_1_1_1_3_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The chemosensory basis for detecting sweetness, which varies among both individuals and species, has only been teased apart in recent years. The current theoretical model is the multipoint attachment theory, which involves multiple binding sites between sweetness receptor and the sweet substance itself.</span>
+</li>
+</ul><p><span style="color: #111111;">Sweet is one of the five basic tastes and is almost universally regarded as a pleasurable experience. Foods rich in simple carbohydrates such as sugar are those most commonly associated with sweetness, although there are other natural and artificial compounds that are sweet at much lower concentrations, allowing their use as non-caloric sugar substitutes. Other compounds may alter perception of sweetness itself</span>
+<p><span style="color: #111111;">Sweetness is produced by the presence of sugars, some proteins, and a few other substances.[citation needed] It is often connected to aldehydes and ketones, which contain a carbonyl group. Sweetness is detected by a variety of G protein-coupled receptors coupled to a G protein that acts as an intermediary in the communication between taste bud and brain, gustducin. These receptors are T1R2+3 (heterodimer) and T1R3 (homodimer), which account for sweet sensing in humans and other animals</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_1_3_2" class="foldclosed" onClick="show_folder('1_1_1_1_3_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_3_2" class="foldopened" onClick="hide_folder('1_1_1_1_3_2')">-</span>
+<span style="color: #111111;">Sour</span>
+<ul id="fold1_1_1_1_3_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Sour is a basic taste that is considered agreeable only in small amounts. An aversive taste, it wards off the ingestion of harmful substances</span>
+<p><span style="color: #111111;">Sourness is acidity, and, like salt, it is a taste sensed using ion channels. Hydrogen ion channels detect the concentration of hydronium ions that are formed from acids and water. In addition, the taste receptor PKD2L1 has been found to be involved in tasting sour.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_1_3_3" class="foldclosed" onClick="show_folder('1_1_1_1_3_3')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_3_3" class="foldopened" onClick="hide_folder('1_1_1_1_3_3')">-</span>
+<span style="color: #111111;">Salty</span>
+<ul id="fold1_1_1_1_3_3" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Saltiness is the taste of salt. An appetitive taste, it drives the consumption of salt. &nbsp;Salt suppresses bitterness, and is commonly added to chocolates, fruits, and desserts to intensify their sweetness.</span>
+<p><span style="color: #111111;">Saltiness is a taste produced best by the presence of cations (such as Na+, K+ or Li+) and, like sour, it is tasted using ion channels. &nbsp;Other ions of the alkali metals group also taste salty, but the less sodium-like the ion is, the less salty the sensation.[citation needed] As the size of lithium and potassium ions is close to that of sodium, they taste similar to salt. In contrast, the larger rubidium and cesium ions do not taste as salty</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_1_3_4" class="foldclosed" onClick="show_folder('1_1_1_1_3_4')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_3_4" class="foldopened" onClick="hide_folder('1_1_1_1_3_4')">-</span>
+<span style="color: #111111;">Bitter</span>
+<ul id="fold1_1_1_1_3_4" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Bitterness is perceived by many to be unpleasant. An aversive taste, it helps prevent ingestion of toxic substances. &nbsp;The ability to detect bitter-tasting substances at low thresholds is considered to provide an important protective function because many toxins taste bitte</span>
+<p><span style="color: #111111;">Research has shown that TAS2Rs (taste receptors, type 2, also known as T2Rs) such as TAS2R38 are responsible for the human ability to taste bitter substances. They are identified not only by their ability to taste certain bitter ligands, but also by the morphology of the receptor itself (surface bound, monomeric).</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_1_3_5" class="foldclosed" onClick="show_folder('1_1_1_1_3_5')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_3_5" class="foldopened" onClick="hide_folder('1_1_1_1_3_5')">-</span>
+<span style="color: #111111;">Umami</span>
+<ul id="fold1_1_1_1_3_5" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Umami is an appetitive taste facilitating ingestion of protein-rich food, and it is variously described as a savory, brothy or meaty taste. &nbsp;Umami can be tasted in cheese and soy sauce, and while also found in many other fermented and aged foods this taste is also present in tomatoes, grains and beans.</span>
+<p><span style="color: #111111;">The amino acid glutamic acid is responsible for umami, but some nucleotides (inosinic acid and guanylic acid) can act as complements, enhancing the taste. &nbsp;Glutamic acid binds to a variant of the G protein-coupled receptor, producing an umami taste</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_4" class="foldclosed" onClick="show_folder('1_1_1_1_4')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_4" class="foldopened" onClick="hide_folder('1_1_1_1_4')">-</span>
+<span style="color: #111111;">Smell</span>
+<ul id="fold1_1_1_1_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Hundreds of olfacotry recepters</span>
+
+</li>
+<li><span style="color: #111111;">Anosmia</span>
+
+</li>
+<li><span style="color: #111111;">Pheromones</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_5" class="foldclosed" onClick="show_folder('1_1_1_1_5')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_5" class="foldopened" onClick="hide_folder('1_1_1_1_5')">-</span>
+<span style="color: #111111;">Touch</span>
+<ul id="fold1_1_1_1_5" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_5_1" class="foldclosed" onClick="show_folder('1_1_1_1_5_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_5_1" class="foldopened" onClick="hide_folder('1_1_1_1_5_1')">-</span>
+<span style="color: #111111;">Pressure, firm, brushing, sustained</span>
+<ul id="fold1_1_1_1_5_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Tactition</span>
+
+</li>
+<li><span style="color: #111111;">Mechanoreception</span>
+
+</li>
+<li><span id="show1_1_1_1_5_1_1" class="foldclosed" onClick="show_folder('1_1_1_1_5_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_5_1_1" class="foldopened" onClick="hide_folder('1_1_1_1_5_1_1')">-</span>
+<span style="color: #111111;">Skin</span>
+<ul id="fold1_1_1_1_5_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Hair follicles</span>
+
+</li>
+<li><span style="color: #111111;">Sensors</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Tongue</span>
+
+</li>
+<li><span style="color: #111111;">Throat</span>
+
+</li>
+<li><span style="color: #111111;">Mucosa</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_5_2" class="foldclosed" onClick="show_folder('1_1_1_1_5_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_5_2" class="foldopened" onClick="hide_folder('1_1_1_1_5_2')">-</span>
+<span style="color: #111111;">Loss of = Paresthesia</span>
+<ul id="fold1_1_1_1_5_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Tingling</span>
+
+</li>
+<li><span style="color: #111111;">Prickling</span>
+
+</li>
+<li><span style="color: #111111;">Numbness</span>
+
+</li>
+<li><span id="show1_1_1_1_5_2_1" class="foldclosed" onClick="show_folder('1_1_1_1_5_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_5_2_1" class="foldopened" onClick="hide_folder('1_1_1_1_5_2_1')">-</span>
+<span style="color: #111111;">=Nerve damage</span>
+<ul id="fold1_1_1_1_5_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Perminent</span>
+
+</li>
+<li><span style="color: #111111;">Temporary</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_6" class="foldclosed" onClick="show_folder('1_1_1_1_6')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_6" class="foldopened" onClick="hide_folder('1_1_1_1_6')">-</span>
+<span style="color: #111111;">Balance &amp; Acceleration</span>
+<ul id="fold1_1_1_1_6" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Movement</span>
+
+</li>
+<li><span style="color: #111111;">Direction</span>
+
+</li>
+<li><span style="color: #111111;">Acceleration</span>
+
+</li>
+<li><span style="color: #111111;">Postural equilibrium and balance</span>
+
+</li>
+<li><span id="show1_1_1_1_6_1" class="foldclosed" onClick="show_folder('1_1_1_1_6_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_6_1" class="foldopened" onClick="hide_folder('1_1_1_1_6_1')">-</span>
+<span style="color: #111111;">Vestibular labyrinthine system</span>
+<ul id="fold1_1_1_1_6_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Found in inner ears</span>
+
+</li>
+<li><span style="color: #111111;">Has two senses</span>
+
+</li>
+<li><span style="color: #111111;">Angular momentum acceleration</span>
+
+</li>
+<li><span style="color: #111111;">Linear acceleration</span>
+
+</li>
+<li><span style="color: #111111;">Senses gravity as well</span>
+
+</li>
+<li><span style="color: #111111;">Together konwn as equilibrioception</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_6_2" class="foldclosed" onClick="show_folder('1_1_1_1_6_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_6_2" class="foldopened" onClick="hide_folder('1_1_1_1_6_2')">-</span>
+<span style="color: #111111;">Vestibular Nerve</span>
+<ul id="fold1_1_1_1_6_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Cunducts information from sensory receptors</span>
+
+</li>
+<li><span style="color: #111111;">Three ampulla that sense motion of fluid</span>
+
+</li>
+<li><span style="color: #111111;">Three semicircular canals caused by three dimensional rotation of the head</span>
+
+</li>
+<li><span id="show1_1_1_1_6_2_1" class="foldclosed" onClick="show_folder('1_1_1_1_6_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_6_2_1" class="foldopened" onClick="hide_folder('1_1_1_1_6_2_1')">-</span>
+<span style="color: #111111;">Utricle and Saccule</span>
+<ul id="fold1_1_1_1_6_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">contain hair like sensory receptors that bend under weight of otoliths</span>
+
+</li>
+<li><span style="color: #111111;">Small crystals of calcium carbonate</span>
+
+</li>
+<li><span style="color: #111111;">Inertia detection of head rotation</span>
+
+</li>
+<li><span style="color: #111111;">Linear acceleration</span>
+
+</li>
+<li><span style="color: #111111;">Direction of gravitational force</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_7" class="foldclosed" onClick="show_folder('1_1_1_1_7')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_7" class="foldopened" onClick="hide_folder('1_1_1_1_7')">-</span>
+<span style="color: #111111;">Temperature</span>
+<ul id="fold1_1_1_1_7" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_1_7_1" class="foldclosed" onClick="show_folder('1_1_1_1_7_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_7_1" class="foldopened" onClick="hide_folder('1_1_1_1_7_1')">-</span>
+<span style="color: #111111;">Thermoception</span>
+<ul id="fold1_1_1_1_7_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Senses heat</span>
+
+</li>
+<li><span style="color: #111111;">Senses abcence of heat</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Internal skin passages</span>
+
+</li>
+<li><span style="color: #111111;">heat flux</span>
+
+</li>
+<li><span style="color: #111111;">Heat flow</span>
+
+</li>
+<li><span style="color: #111111;">Infared radiation</span>
+
+</li>
+<li><span style="color: #111111;">Feedback of internal body temperature</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_8" class="foldclosed" onClick="show_folder('1_1_1_1_8')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_8" class="foldopened" onClick="hide_folder('1_1_1_1_8')">-</span>
+<span style="color: #111111;">Kinesthetic</span>
+<ul id="fold1_1_1_1_8" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Parietal cortex</span>
+
+</li>
+<li><span style="color: #111111;">Relative positions</span>
+
+</li>
+<li><span style="color: #111111;">Thought proprioception is subtle can cause deep deficits in perception and action</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_9" class="foldclosed" onClick="show_folder('1_1_1_1_9')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_9" class="foldopened" onClick="hide_folder('1_1_1_1_9')">-</span>
+<span style="color: #111111;">Pain</span>
+<ul id="fold1_1_1_1_9" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Nociception signals</span>
+
+</li>
+<li><span style="color: #111111;">Cutaneous, Skin</span>
+
+</li>
+<li><span style="color: #111111;">Somatic, Bones and joints</span>
+
+</li>
+<li><span style="color: #111111;">Visceral, Body organs</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_10" class="foldclosed" onClick="show_folder('1_1_1_1_10')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_10" class="foldopened" onClick="hide_folder('1_1_1_1_10')">-</span>
+<span style="color: #111111;">Direction</span>
+<ul id="fold1_1_1_1_10" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Magnetoception</span>
+
+</li>
+<li><span style="color: #111111;">Dectection of the Earth's magnetic field</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_1_11" class="foldclosed" onClick="show_folder('1_1_1_1_11')" style="POSITION: absolute">+</span> <span id="hide1_1_1_1_11" class="foldopened" onClick="hide_folder('1_1_1_1_11')">-</span>
+<span style="color: #111111;">Internal Sense</span>
+<ul id="fold1_1_1_1_11" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Pulmonary stretch receptors found in lungs</span>
+<p><span style="color: #111111;">Chemoreceptor Trigger Zones Vommit sensor from blood born drug and hormones</span>
+<p><span style="color: #111111;">gastrointestinal tract sense gas distension that may result in colic pain</span>
+<p><span style="color: #111111;">esophagus result in sensations felt in the throat when swallowing, vomiting, or during acid reflux</span>
+<p><span style="color: #111111;">pharynx mucosa, similar to touch receptors in the skin, sense foreign objects such as food that may result in a gag reflex and corresponding gagging sensation</span>
+<p><span style="color: #111111;">urinary bladder and rectum may result in sensations of fullness</span>
+<p><span style="color: #111111;">stretch sensors that sense dilation of various blood vessels may result in pain, for example headache caused by vasodilation of brain arteries</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2" class="foldclosed" onClick="show_folder('1_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2" class="foldopened" onClick="hide_folder('1_1_1_2')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Memory</span>
+<ul id="fold1_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_1" class="foldclosed" onClick="show_folder('1_1_1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_1" class="foldopened" onClick="hide_folder('1_1_1_2_1')">-</span>
+<span style="color: #111111;">Individual</span>
+<ul id="fold1_1_1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_1_1" class="foldclosed" onClick="show_folder('1_1_1_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_1_1" class="foldopened" onClick="hide_folder('1_1_1_2_1_1')">-</span>
+<span style="color: #111111;">Explicit</span>
+<ul id="fold1_1_1_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Autobiographical</span>
+
+</li>
+<li><span style="color: #111111;">Semantic</span>
+
+</li>
+<li><span style="color: #111111;">Episodic</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_1_2" class="foldclosed" onClick="show_folder('1_1_1_2_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_1_2" class="foldopened" onClick="hide_folder('1_1_1_2_1_2')">-</span>
+<span style="color: #111111;">Implicit</span>
+<ul id="fold1_1_1_2_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Procedural</span>
+
+</li>
+<li><span style="color: #111111;">Priming</span>
+
+</li>
+<li><span style="color: #111111;">Perceptual</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_2" class="foldclosed" onClick="show_folder('1_1_1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_2" class="foldopened" onClick="hide_folder('1_1_1_2_2')">-</span>
+<span style="color: #111111;">Collective</span>
+<ul id="fold1_1_1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Communicative</span>
+
+</li>
+<li><span style="color: #111111;">Storage</span>
+
+</li>
+<li><span style="color: #111111;">Cultural</span>
+
+</li>
+<li><span style="color: #111111;">Functional</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_3" class="foldclosed" onClick="show_folder('1_1_1_2_3')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_3" class="foldopened" onClick="hide_folder('1_1_1_2_3')">-</span>
+<span style="color: #111111;">Working Memory</span>
+<ul id="fold1_1_1_2_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Otherwise known as Sensory memory</span>
+
+</li>
+<li><span style="color: #111111;">200-500 milliseconds window after an item has been perceieved</span>
+
+</li>
+<li><span style="color: #111111;">observation</span>
+
+</li>
+<li><span style="color: #111111;">Memorisation</span>
+
+</li>
+<li><span style="color: #111111;">presentation of seeing more than actually reporting</span>
+
+</li>
+<li><span style="color: #111111;">Degrades quickly</span>
+
+</li>
+<li><span style="color: #111111;">Working memory can not be prolonged via rehearsal</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_4" class="foldclosed" onClick="show_folder('1_1_1_2_4')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_4" class="foldopened" onClick="hide_folder('1_1_1_2_4')">-</span>
+<span style="color: #111111;">Short-term memory</span>
+<ul id="fold1_1_1_2_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Seconds to a minute window without rehersal</span>
+
+</li>
+<li><span style="color: #111111;">7 +- 2 items</span>
+
+</li>
+<li><span style="color: #111111;">Acoustic coding lesser than visual</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_5" class="foldclosed" onClick="show_folder('1_1_1_2_5')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_5" class="foldopened" onClick="hide_folder('1_1_1_2_5')">-</span>
+<span style="color: #111111;">Long-term Memory</span>
+<ul id="fold1_1_1_2_5" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Without time constraints</span>
+<p><span style="color: #111111;">Unlimited duration</span>
+<p><span style="color: #111111;">Immeasurably large</span>
+<p><span style="color: #111111;">Visual coding</span>
+<p><span style="color: #111111;">Systamatic encoding, encoding systamatically</span>
+<p><span style="color: #111111;">The sleeping brain can transfer patterns of the working/short-term during long-term rehearsal at night</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_2_6" class="foldclosed" onClick="show_folder('1_1_1_2_6')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6" class="foldopened" onClick="hide_folder('1_1_1_2_6')">-</span>
+<span style="color: #111111;">Model Memory</span>
+<ul id="fold1_1_1_2_6" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_6_1" class="foldclosed" onClick="show_folder('1_1_1_2_6_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_1" class="foldopened" onClick="hide_folder('1_1_1_2_6_1')">-</span>
+<span style="color: #111111;">Multi-store model</span>
+<ul id="fold1_1_1_2_6_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_6_1_1" class="foldclosed" onClick="show_folder('1_1_1_2_6_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_1_1" class="foldopened" onClick="hide_folder('1_1_1_2_6_1_1')">-</span>
+<span style="color: #111111;">Sensory memory</span>
+<ul id="fold1_1_1_2_6_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_6_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_2_6_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_2_6_1_1_1')">-</span>
+<span style="color: #111111;">Attention</span>
+<ul id="fold1_1_1_2_6_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_6_1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_2_6_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_2_6_1_1_1_1')">-</span>
+<span style="color: #111111;">Short-Term Memory</span>
+<ul id="fold1_1_1_2_6_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_6_1_1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_2_6_1_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_1_1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_2_6_1_1_1_1_1')">-</span>
+<span style="color: #111111;">Transfer</span>
+<ul id="fold1_1_1_2_6_1_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Long-term memory</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Retrieval</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Rehearsal</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_6_2" class="foldclosed" onClick="show_folder('1_1_1_2_6_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_2" class="foldopened" onClick="hide_folder('1_1_1_2_6_2')">-</span>
+<span style="color: #111111;">Phonological loop</span>
+<ul id="fold1_1_1_2_6_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_6_2_1" class="foldclosed" onClick="show_folder('1_1_1_2_6_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_2_1" class="foldopened" onClick="hide_folder('1_1_1_2_6_2_1')">-</span>
+<span style="color: #111111;">Phonological Store</span>
+<ul id="fold1_1_1_2_6_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_6_2_1_1" class="foldclosed" onClick="show_folder('1_1_1_2_6_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_2_1_1" class="foldopened" onClick="hide_folder('1_1_1_2_6_2_1_1')">-</span>
+<span style="color: #111111;">Transfer</span>
+<ul id="fold1_1_1_2_6_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_6_2_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_2_6_2_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_2_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_2_6_2_1_1_1')">-</span>
+<span style="color: #111111;">Central Executive</span>
+<ul id="fold1_1_1_2_6_2_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_6_2_1_1_1_1" class="foldclosed" onClick="show_folder('1_1_1_2_6_2_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_6_2_1_1_1_1" class="foldopened" onClick="hide_folder('1_1_1_2_6_2_1_1_1_1')">-</span>
+<span style="color: #111111;">Transfer</span>
+<ul id="fold1_1_1_2_6_2_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Visuo-spatial Sketchpad</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Retrieval</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Retrieval</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Articulatory Process</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_7" class="foldclosed" onClick="show_folder('1_1_1_2_7')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7" class="foldopened" onClick="hide_folder('1_1_1_2_7')">-</span>
+<span style="color: #111111;">Memory types</span>
+<ul id="fold1_1_1_2_7" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_7_1" class="foldclosed" onClick="show_folder('1_1_1_2_7_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_1" class="foldopened" onClick="hide_folder('1_1_1_2_7_1')">-</span>
+<span style="color: #111111;">Declarative memory</span>
+<ul id="fold1_1_1_2_7_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Requires conscious recall</span>
+
+</li>
+<li><span style="color: #111111;">Sometimes known as explicit memory</span>
+
+</li>
+<li><span style="color: #111111;">Can be subdivided as Semantic memory</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_7_2" class="foldclosed" onClick="show_folder('1_1_1_2_7_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_2" class="foldopened" onClick="hide_folder('1_1_1_2_7_2')">-</span>
+<span style="color: #111111;">Semantic memory</span>
+<ul id="fold1_1_1_2_7_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Concerning facts independent of context</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_7_3" class="foldclosed" onClick="show_folder('1_1_1_2_7_3')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_3" class="foldopened" onClick="hide_folder('1_1_1_2_7_3')">-</span>
+<span style="color: #111111;">Episodic Memory</span>
+<ul id="fold1_1_1_2_7_3" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Concerning facst dependent of context </span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_7_4" class="foldclosed" onClick="show_folder('1_1_1_2_7_4')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_4" class="foldopened" onClick="hide_folder('1_1_1_2_7_4')">-</span>
+<span style="color: #111111;">Autobiographical memory</span>
+<ul id="fold1_1_1_2_7_4" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Autobiographical memory is a memory system consisting of episodes recollected from an individual&#8217;s life, based on a combination of episodic (personal experiences and specific objects, people and events experienced at particular time and place) and semantic (general knowledge and facts about the world) memory.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_2_7_5" class="foldclosed" onClick="show_folder('1_1_1_2_7_5')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_5" class="foldopened" onClick="hide_folder('1_1_1_2_7_5')">-</span>
+<span style="color: #111111;">Visual Memory</span>
+<ul id="fold1_1_1_2_7_5" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_7_5_1" class="foldclosed" onClick="show_folder('1_1_1_2_7_5_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_5_1" class="foldopened" onClick="hide_folder('1_1_1_2_7_5_1')">-</span>
+<span style="color: #111111;">Mental image</span>
+<ul id="fold1_1_1_2_7_5_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">A mental image is an experience that, on most occasions, significantly resembles the experience of perceiving some object, event, or scene, but occurs when the relevant object, event, or scene is not actually present to the senses. There are sometimes episodes, particularly on falling asleep (hypnagogic imagery) and waking up (hypnopompic), when the imagery, being of a rapid, phantasmagoric and involuntary character, defies perception, presenting a kaleidoscopic field, in which no distinct object can be discerned.</span>
+</li>
+</ul>
+</li>
+<li><span style="color: #111111;">Can result in priming and perception underlies this phenomenon</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2_7_6" class="foldclosed" onClick="show_folder('1_1_1_2_7_6')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_6" class="foldopened" onClick="hide_folder('1_1_1_2_7_6')">-</span>
+<span style="color: #111111;">Procedural memory</span>
+<ul id="fold1_1_1_2_7_6" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_2_7_6_1" class="foldclosed" onClick="show_folder('1_1_1_2_7_6_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_6_1" class="foldopened" onClick="hide_folder('1_1_1_2_7_6_1')">-</span>
+<span style="color: #111111;">Based on implicit learning</span>
+<ul id="fold1_1_1_2_7_6_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Implicit learning is learning of complex information in an incidental manner, without awareness of what has been learned. It may require a certain minimal amount of attention and may depend on attentional and working memory mechanisms. The result of implicit learning is implicit knowledge in the form of abstract (but possibly instantiated) representations rather than verbatim or aggregate representations. &nbsp;Some examples from daily life like 'learning how to ride a bicycle or learning to swim' can be given to demonstrate the nature of implicit learning and its mechanism. There are clear similarities between implicit learning and implicit memory. It has been claimed that implicit learning differs from explicit learning in terms of the presence or absence of consciously accessible knowledge. Much evidence supports the distinction between implicit and explicit learning. Researches on amnesia often show intact implicit learning but impaired explicit learning. In addition, brain areas involved in working memory and attention are often more active during explicit than implicit learning</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_2_7_6_2" class="foldclosed" onClick="show_folder('1_1_1_2_7_6_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_6_2" class="foldopened" onClick="hide_folder('1_1_1_2_7_6_2')">-</span>
+<span style="color: #111111;">Employed in motor skills</span>
+<ul id="fold1_1_1_2_7_6_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Motor learning is the process of improving the motor skills, the smoothness and accuracy of movements. It is obviously necessary for complicated movements such as speaking, playing the piano, climbing trees and eating bananas but it is also important for calibrating simple movements like reflexes, as parameters of the body and environment change over time. The cerebellum and basal ganglia are critical for motor learning. &nbsp;As a result of the universal need for properly calibrated movement, it is not surprising that the cerebellum and basal ganglia are widely conserved across vertebrates from fish to humans.</span>
+</li>
+</ul>
+</li>
+<li><span style="color: #111111;">A subset of implicit learning</span>
+
+</li>
+<li><span style="color: #111111;">unconsciouly accessing aspects of previous experiences</span>
+
+</li>
+<li><span id="show1_1_1_2_7_6_3" class="foldclosed" onClick="show_folder('1_1_1_2_7_6_3')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_6_3" class="foldopened" onClick="hide_folder('1_1_1_2_7_6_3')">-</span>
+<span style="color: #111111;">Dependent on cerebellum</span>
+<ul id="fold1_1_1_2_7_6_3" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The cerebellum (Latin for little brain) is a region of the brain that plays an important role in motor control. It is also involved in some cognitive functions such as attention and language, and probably in some emotional functions such as regulating fear and pleasure responses. Its movement-related functions are the most clearly understood, however. The cerebellum does not initiate movement, but it contributes to coordination, precision, and accurate timing. It receives input from sensory systems and from other parts of the brain and spinal cord, and integrates these inputs to fine tune motor activity. Because of this fine-tuning function, damage to the cerebellum does not cause paralysis, but instead produces disorders in fine movement, equilibrium, posture, and motor learning.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_2_7_6_4" class="foldclosed" onClick="show_folder('1_1_1_2_7_6_4')" style="POSITION: absolute">+</span> <span id="hide1_1_1_2_7_6_4" class="foldopened" onClick="hide_folder('1_1_1_2_7_6_4')">-</span>
+<span style="color: #111111;">Dependent on basal ganglia</span>
+<ul id="fold1_1_1_2_7_6_4" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The basal ganglia (or basal nuclei) are a group of nuclei of varied origin (mostly telencephalic embryonal origin, with some diencephalic and mesencephalic elements) in the brains of vertebrates that act as a cohesive functional unit. They are situated at the base of the forebrain and strongly connected with the cerebral cortex, thalamus and other brain areas. The basal ganglia are associated with a variety of functions, including voluntary motor control, procedural learning relating to routine behaviors or "habits" such as bruxism, eye movements, and cognitive, emotional functions. Currently popular theories implicate the basal ganglia primarily in action selection, that is, the decision of which of several possible behaviors to execute at a given time</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_3" class="foldclosed" onClick="show_folder('1_1_1_3')" style="POSITION: absolute">+</span> <span id="hide1_1_1_3" class="foldopened" onClick="hide_folder('1_1_1_3')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Perception</span>
+<ul id="fold1_1_1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_3_1" class="foldclosed" onClick="show_folder('1_1_1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_3_1" class="foldopened" onClick="hide_folder('1_1_1_3_1')">-</span>
+<span style="color: #111111;">Predominate</span>
+<ul id="fold1_1_1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_1_3_1_1" class="foldclosed" onClick="show_folder('1_1_1_3_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_1_3_1_1" class="foldopened" onClick="hide_folder('1_1_1_3_1_1')">-</span>
+<span style="color: #111111;">Observable</span>
+<ul id="fold1_1_1_3_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The difference every sighted person can demonstrate to him- or herself is by the simple opening and closing of his or her eyes: phenomenal consciousness is thought, on average, to be predominately absent without senses such as sight.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_1_3_1_2" class="foldclosed" onClick="show_folder('1_1_1_3_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_3_1_2" class="foldopened" onClick="hide_folder('1_1_1_3_1_2')">-</span>
+<span style="color: #111111;">Pscyhological</span>
+<ul id="fold1_1_1_3_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;"> Through the full or rich sensations present in senses such as sight, nothing by comparison is present while the senses are not engaged, such as when the eyes are closed. Using this precept, it is understood that, in the vast majority of cases, logical solutions are reached through simple human sensation. The analogy of Plato's Cave was coined to express these ideas</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_3_2" class="foldclosed" onClick="show_folder('1_1_1_3_2')" style="POSITION: absolute">+</span> <span id="hide1_1_1_3_2" class="foldopened" onClick="hide_folder('1_1_1_3_2')">-</span>
+<span style="color: #111111;">Passive</span>
+<ul id="fold1_1_1_3_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Passive perception (conceived by Ren&#233; Descartes) can be surmised as the following sequence of events: surrounding &#8594;&nbsp;input (senses) &#8594;&nbsp;processing (brain) &#8594;&nbsp;output (re-action). Although still supported by mainstream philosophers, psychologists and neurologists, this theory is nowadays losing momentum. The theory of active perception has emerged from extensive research of sensory illusions, most notably the works of Richard L. Gregory. This theory, which is increasingly gaining experimental support, can be surmised as dynamic relationship between "description" (in the brain) &#8596;&nbsp;senses &#8596;&nbsp;surrounding, all of which holds true to the linear concept of experience.</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2" class="foldclosed" onClick="show_folder('1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_1_2" class="foldopened" onClick="hide_folder('1_1_2')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Processing</span>
+<ul id="fold1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_2_1" class="foldclosed" onClick="show_folder('1_1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_2_1" class="foldopened" onClick="hide_folder('1_1_2_1')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Encoding</span>
+<ul id="fold1_1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Memory is the ability to encode, store and recall information. Memories give an organism the capability to learn and adapt from previous experiences as well as build relationships. Encoding allows the perceived item of use or interest to be converted into a construct that can be stored within the brain and recalled later from short term or long term memory. Working memory stores information for immediate use or manipulation.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_2_2" class="foldclosed" onClick="show_folder('1_1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_1_2_2" class="foldopened" onClick="hide_folder('1_1_2_2')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Storage</span>
+<ul id="fold1_1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The human memory has three processes: encoding (input), storage (throughput) and retrieval (output). Storage is the process of retaining information whether in the sensory memory, the short-term memory or the more permanent long-term memory.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_2_3" class="foldclosed" onClick="show_folder('1_1_2_3')" style="POSITION: absolute">+</span> <span id="hide1_1_2_3" class="foldopened" onClick="hide_folder('1_1_2_3')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Retrieval</span>
+<ul id="fold1_1_2_3" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Recall in memory refers to the retrieval of events or information from the past. Along with encoding and storage, it is one of the three core processes of memory. There are three main types of recall: free recall, cued recall and serial recall. Psychologists test these forms of recall as a way to study the memory processes of humans and animals. Two main theories of the process of recall are the Two-Stage Theory and the theory of Encoding Specificity.</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3" class="foldclosed" onClick="show_folder('1_1_3')" style="POSITION: absolute">+</span> <span id="hide1_1_3" class="foldopened" onClick="hide_folder('1_1_3')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Personality</span>
+<ul id="fold1_1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_3_1" class="foldclosed" onClick="show_folder('1_1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_1_3_1" class="foldopened" onClick="hide_folder('1_1_3_1')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Openness</span>
+<ul id="fold1_1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Openness is a general appreciation for art, emotion, adventure, unusual ideas, imagination, curiosity, and variety of experience. The trait distinguishes imaginative people from down-to-earth, conventional people. People who are open to experience are intellectually curious, appreciative of art, and sensitive to beauty. They tend to be, compared to closed people, more creative and more aware of their feelings. They are more likely to hold unconventional beliefs. &nbsp;People with low scores on openness tend to have more conventional, traditional interests. They prefer the plain, straightforward, and obvious over the complex, ambiguous, and subtle. They may regard the arts and sciences with suspicion or even view these endeavors as uninteresting.</span>
+<p><span style="color: #111111;">I have a rich vocabulary.
+<br>
+I have a vivid imagination.
+<br>
+I have excellent ideas.
+<br>
+I spend time reflecting on things.
+<br>
+I use difficult words.
+<br>
+I am not interested in abstractions. (reversed)
+<br>
+I do not have a good imagination. (reversed)
+<br>
+I have difficulty understanding abstract ideas. (reversed)</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_2" class="foldclosed" onClick="show_folder('1_1_3_2')" style="POSITION: absolute">+</span> <span id="hide1_1_3_2" class="foldopened" onClick="hide_folder('1_1_3_2')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Conscientiousness</span>
+<ul id="fold1_1_3_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span id="show1_1_3_2_1" class="foldclosed" onClick="show_folder('1_1_3_2_1')" style="POSITION: absolute">+</span> <span id="hide1_1_3_2_1" class="foldopened" onClick="hide_folder('1_1_3_2_1')">-</span>
+<span style="color: #111111;">Conscientiousness is a tendency to show self-discipline, act dutifully, and aim for achievement. The trait shows a preference for planned rather than spontaneous behavior. It influences the way in which we control, regulate, and direct our impulses. Conscientiousness includes the factor known as Need for Achievement (NAch)</span>
+<ul id="fold1_1_3_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_3_2_1_1" class="foldclosed" onClick="show_folder('1_1_3_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_1_3_2_1_1" class="foldopened" onClick="hide_folder('1_1_3_2_1_1')">-</span>
+<span style="color: #111111;">Need for Achievement</span>
+<ul id="fold1_1_3_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Need for Achievement (N-Ach) refers to an individual's desire for significant accomplishment, mastering of skills, control, or high standards. The term was first used by Henry Murray in "Explorations in Personality" (1938) and associated with a range of actions. These include: "intense, prolonged and repeated efforts to accomplish something difficult. To work with singleness of purpose towards a high and distant goal. To have the determination to win" (p164). The concept of NAch was subsequently popularised by the psychologist David McClelland.</span>
+<p><span style="color: #111111;"> &nbsp;&nbsp;1. Parents who encouraged independence in childhood
+<br>
+ &nbsp;&nbsp;2. Praise and rewards for success
+<br>
+ &nbsp;&nbsp;3. Association of achievement with positive feelings
+<br>
+ &nbsp;&nbsp;4. Association of achievement with one's own competence and effort, not luck
+<br>
+ &nbsp;&nbsp;5. A desire to be effective or challenged
+<br>
+ &nbsp;&nbsp;6. Intrapersonal Strength</span>
+</li>
+</ul>
+</li>
+
+</ul><p><span style="color: #111111;">I am always prepared.
+<br>
+I am exacting in my work.
+<br>
+I follow a schedule.
+<br>
+I like order.
+<br>
+I pay attention to details.
+<br>
+I leave my belongings around. (reversed)
+<br>
+I make a mess of things. (reversed)
+<br>
+I often forget to put things back in their proper place. (reversed)
+<br>
+I shirk my duties. (reversed)</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_3" class="foldclosed" onClick="show_folder('1_1_3_3')" style="POSITION: absolute">+</span> <span id="hide1_1_3_3" class="foldopened" onClick="hide_folder('1_1_3_3')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Extraversion</span>
+<ul id="fold1_1_3_3" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Extraversion is characterized by positive emotions, surgency, and the tendency to seek out stimulation and the company of others. The trait is marked by pronounced engagement with the external world. Extraverts enjoy being with people, and are often perceived as full of energy. They tend to be enthusiastic, action-oriented individuals who are likely to say "Yes!" or "Let's go!" to opportunities for excitement. In groups they like to talk, assert themselves, and draw attention to themselves. &nbsp;Introverts lack the social exuberance and activity levels of extraverts. They tend to seem quiet, low-key, deliberate, and less involved in the social world. Their lack of social involvement should not be interpreted as shyness or depression. Introverts simply need less stimulation than extraverts and more time alone. They may be very active and energetic, simply not socially.</span>
+<p><span style="color: #111111;">I don't mind being the center of attention.
+<br>
+I feel comfortable around people.
+<br>
+I start conversations.
+<br>
+I talk to a lot of different people at parties.
+<br>
+I am quiet around strangers. (reversed)
+<br>
+I don't like to draw attention to myself. (reversed)
+<br>
+I don't talk a lot. (reversed)
+<br>
+I have little to say. (reversed)</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_4" class="foldclosed" onClick="show_folder('1_1_3_4')" style="POSITION: absolute">+</span> <span id="hide1_1_3_4" class="foldopened" onClick="hide_folder('1_1_3_4')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Agreeableness</span>
+<ul id="fold1_1_3_4" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Agreeableness is a tendency to be compassionate and cooperative rather than suspicious and antagonistic towards others. The trait reflects individual differences in general concern for social harmony. Agreeable individuals value getting along with others. They are generally considerate, friendly, generous, helpful, and willing to compromise their interests with others. Agreeable people also have an optimistic view of human nature. They believe people are basically honest, decent, and trustworthy. &nbsp;Disagreeable individuals place self-interest above getting along with others. They are generally unconcerned with others&#8217; well-being, and are less likely to extend themselves for other people. Sometimes their skepticism about others&#8217; motives causes them to be suspicious, unfriendly, and uncooperative.</span>
+<p><span style="color: #111111;">I am interested in people.
+<br>
+I feel others' feelings.
+<br>
+I have a soft heart.
+<br>
+I make people feel at ease.
+<br>
+I sympathize with others&#8217; feelings.
+<br>
+I take time out for others.
+<br>
+I am not interested in other people&#8217;s problems. (reversed)
+<br>
+I am not really interested in others. (reversed)
+<br>
+I feel little concern for others. (reversed)
+<br>
+I insult people. (reversed)
+<br>
+I like being isolated. (reversed)
+<br>
+</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_5" class="foldclosed" onClick="show_folder('1_1_3_5')" style="POSITION: absolute">+</span> <span id="hide1_1_3_5" class="foldopened" onClick="hide_folder('1_1_3_5')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Neuroticism</span>
+<ul id="fold1_1_3_5" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Neuroticism is the tendency to experience negative emotions, such as anger, anxiety, or depression. It is sometimes called emotional instability. Those who score high in neuroticism are emotionally reactive and vulnerable to stress. They are more likely to interpret ordinary situations as threatening, and minor frustrations as hopelessly difficult. Their negative emotional reactions tend to persist for unusually long periods of time, which means they are often in a bad mood. These problems in emotional regulation can diminish the ability of a person scoring high on neuroticism to think clearly, make decisions, and cope effectively with stress. &nbsp;At the other end of the scale, individuals who score low in neuroticism are less easily upset and are less emotionally reactive. They tend to be calm, emotionally stable, and free from persistent negative feelings. Freedom from negative feelings does not mean that low scorers experience a lot of positive feelings.</span>
+<p><span style="color: #111111;">I am easily disturbed.
+<br>
+I change my mood a lot.
+<br>
+I get irritated easily.
+<br>
+I get stressed out easily.
+<br>
+I get upset easily.
+<br>
+I have frequent mood swings.
+<br>
+I often feel blue.
+<br>
+I worry about things.
+<br>
+I am relaxed most of the time. (reversed)
+<br>
+I seldom feel blue. (reversed)</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_6" class="foldclosed" onClick="show_folder('1_1_3_6')" style="POSITION: absolute">+</span> <span id="hide1_1_3_6" class="foldopened" onClick="hide_folder('1_1_3_6')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Heritablility</span>
+<ul id="fold1_1_3_6" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">All five factors show an influence from both heredity and environment. Studies of twins suggest that these effects contribute in roughly equal proportion. Of four recent twin studies, the mean estimated broad heritabilities on self-report measures for the Big Five traits were as follows:
+<br>
+
+<br>
+ &nbsp;&nbsp;&nbsp;Openness: 57%
+<br>
+ &nbsp;&nbsp;&nbsp;Conscientiousness: 49%
+<br>
+ &nbsp;&nbsp;&nbsp;Extraversion: 54%
+<br>
+ &nbsp;&nbsp;&nbsp;Agreeableness: 42%
+<br>
+ &nbsp;&nbsp;&nbsp;Neuroticism: 48% </span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_7" class="foldclosed" onClick="show_folder('1_1_3_7')" style="POSITION: absolute">+</span> <span id="hide1_1_3_7" class="foldopened" onClick="hide_folder('1_1_3_7')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Development</span>
+<ul id="fold1_1_3_7" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Many studies of longitudinal data, which correlate people's test scores over time, and cross-sectional data, which compare personality levels across different age groups, show a high degree of stability in personality traits during adulthood. More recent research and meta-analyses of previous studies, however, indicate that change occurs in all five traits at various points in the lifespan. The new research shows evidence for a maturation effect. On average, levels of Agreeableness and Conscientiousness typically increase with time, whereas Extraversion, Neuroticism, and Openness tend to decrease. In addition to these group effects, there are individual differences: different people demonstrate unique patterns of change at all stages of life.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_8" class="foldclosed" onClick="show_folder('1_1_3_8')" style="POSITION: absolute">+</span> <span id="hide1_1_3_8" class="foldopened" onClick="hide_folder('1_1_3_8')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Gender differences</span>
+<ul id="fold1_1_3_8" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Cross-cultural research from 26 nations (N = 23,031 subjects) and again in 55 nations (N = 17,637 subjects) has shown a universal pattern of sex differences on responses to the Big Five Inventory. Women consistently report higher Neuroticism and Agreeableness, and men often report higher Extraversion and Conscientiousness. Sex differences in personality traits are smaller in prosperous, healthy, and egalitarian cultures in which women have more opportunities that are equal to those of men. Both men and women tend to grow more extraverted and conscientious and less neurotic and agreeable as cultures grow more prosperous and egalitarian, but the effect is stronger for men.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_9" class="foldclosed" onClick="show_folder('1_1_3_9')" style="POSITION: absolute">+</span> <span id="hide1_1_3_9" class="foldopened" onClick="hide_folder('1_1_3_9')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Birth Order</span>
+<ul id="fold1_1_3_9" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The suggestion has often been made that individuals differ by the order of their births. Frank J. Sulloway argues that birth order is correlated with personality traits. He claims that firstborns are more conscientious, more socially dominant, less agreeable, and less open to new ideas compared to laterborns. &nbsp;However, Sulloway&#8217;s case has been called into question. One criticism is that his data confounds family size with birth order. Subsequent analyses have shown that birth order effects are only found in studies where the subjects&#8217; personality traits are rated by family members (such as siblings or parents) or by acquaintances familiar with the subjects&#8217; birth order. Large scale studies using random samples and self-report personality tests like the NEO PI-R have found no significant effect of birth order on personality.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_10" class="foldclosed" onClick="show_folder('1_1_3_10')" style="POSITION: absolute">+</span> <span id="hide1_1_3_10" class="foldopened" onClick="hide_folder('1_1_3_10')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Cross-culture</span>
+<ul id="fold1_1_3_10" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The Big Five have been replicated in a variety of different languages and cultures, such as German, Chinese. Indian, etc. Thompson has demonstrated the Big Five structure across several cultures using an international English language scale. &nbsp;Recent work has found relationships between Geert Hofstede&#8217;s cultural factors, Individualism, Power Distance, Masculinity, and Uncertainty Avoidance, with the average Big Five scores in a country. For instance, the degree to which a country values individualism correlates with its average Extraversion, while people living in cultures which are accepting of large inequalities in their power structures tend to score somewhat higher on Conscientiousness. The reasons for these differences are as yet unknown; this is an active area of research.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_11" class="foldclosed" onClick="show_folder('1_1_3_11')" style="POSITION: absolute">+</span> <span id="hide1_1_3_11" class="foldopened" onClick="hide_folder('1_1_3_11')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">non-human</span>
+<ul id="fold1_1_3_11" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The big five personality factors have been assessed in some non-human species. In one series of studies, human ratings of chimpanzees using the Chimpanzee Personality Questionnaire (CPQ) revealed factors of extraversion, conscientiousness and agreeableness &#8211;&nbsp;as well as an additional factor of dominance &#8211;&nbsp;across hundreds of chimpanzees in zoological parks, a large naturalistic sanctuary and a research laboratory. Neuroticism and Openness factors were found in an original zoo sample, but did not replicate in a new zoo sample or to other settings (perhaps reflecting the design of the CPQ).</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_12" class="foldclosed" onClick="show_folder('1_1_3_12')" style="POSITION: absolute">+</span> <span id="hide1_1_3_12" class="foldopened" onClick="hide_folder('1_1_3_12')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Attitude</span>
+<ul id="fold1_1_3_12" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_3_12_1" class="foldclosed" onClick="show_folder('1_1_3_12_1')" style="POSITION: absolute">+</span> <span id="hide1_1_3_12_1" class="foldopened" onClick="hide_folder('1_1_3_12_1')">-</span>
+<span style="color: #111111;">Extraversion</span>
+<ul id="fold1_1_3_12_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Action oriented</span>
+
+</li>
+<li><span style="color: #111111;">Seek breadth of konwledge and influence</span>
+
+</li>
+<li><span style="color: #111111;">Prefer more frequent interaction</span>
+
+</li>
+<li><span style="color: #111111;">Recharge from spending time with people</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_12_2" class="foldclosed" onClick="show_folder('1_1_3_12_2')" style="POSITION: absolute">+</span> <span id="hide1_1_3_12_2" class="foldopened" onClick="hide_folder('1_1_3_12_2')">-</span>
+<span style="color: #111111;">Introversion</span>
+<ul id="fold1_1_3_12_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Thought oriented</span>
+
+</li>
+<li><span style="color: #111111;">Seek depth of knowledge and influence</span>
+
+</li>
+<li><span style="color: #111111;">Prefer more substantial interaction</span>
+
+</li>
+<li><span style="color: #111111;">Recharge from time alone</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_13" class="foldclosed" onClick="show_folder('1_1_3_13')" style="POSITION: absolute">+</span> <span id="hide1_1_3_13" class="foldopened" onClick="hide_folder('1_1_3_13')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Functions</span>
+<ul id="fold1_1_3_13" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_3_13_1" class="foldclosed" onClick="show_folder('1_1_3_13_1')" style="POSITION: absolute">+</span> <span id="hide1_1_3_13_1" class="foldopened" onClick="hide_folder('1_1_3_13_1')">-</span>
+<span style="color: #111111;">Sensing (S/i)</span>
+<ul id="fold1_1_3_13_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">They describe how new information is understood and interpreted. Individuals who prefer sensing are more likely to trust information that is in the present, tangible and concrete: that is, information that can be understood by the five senses. They tend to distrust hunches, which seem to come "out of nowhere.": They prefer to look for details and facts. For them, the meaning is in the data.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_13_2" class="foldclosed" onClick="show_folder('1_1_3_13_2')" style="POSITION: absolute">+</span> <span id="hide1_1_3_13_2" class="foldopened" onClick="hide_folder('1_1_3_13_2')">-</span>
+<span style="color: #111111;">Intuition (I/s)</span>
+<ul id="fold1_1_3_13_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Those who prefer intuition tend to trust information that is more abstract or theoretical, that can be associated with other information (either remembered or discovered by seeking a wider context or pattern). They may be more interested in future possibilities. They tend to trust those flashes of insight that seem to bubble up from the unconscious mind. The meaning is in how the data relates to the pattern or theory.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_13_3" class="foldclosed" onClick="show_folder('1_1_3_13_3')" style="POSITION: absolute">+</span> <span id="hide1_1_3_13_3" class="foldopened" onClick="hide_folder('1_1_3_13_3')">-</span>
+<span style="color: #111111;">Thinking (T/f)</span>
+<ul id="fold1_1_3_13_3" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The thinking and feeling functions are both used to make rational decisions, based on the data received from their information-gathering functions (sensing or intuition). Those who prefer thinking tend to decide things from a more detached standpoint, measuring the decision by what seems reasonable, logical, causal, consistent and matching a given set of rules.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_13_4" class="foldclosed" onClick="show_folder('1_1_3_13_4')" style="POSITION: absolute">+</span> <span id="hide1_1_3_13_4" class="foldopened" onClick="hide_folder('1_1_3_13_4')">-</span>
+<span style="color: #111111;">Feeling (F/t)</span>
+<ul id="fold1_1_3_13_4" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Those who prefer feeling tend to come to decisions by associating or empathizing with the situation, looking at it 'from the inside' and weighing the situation to achieve, on balance, the greatest harmony, consensus and fit, considering the needs of the people involved. &nbsp;As noted already, people who prefer thinking do not necessarily, in the everyday sense, "think better" than their feeling counterparts; the opposite preference is considered an equally rational way of coming to decisions (and, in any case, the MBTI assessment is a measure of preference, not ability). Similarly, those who prefer feeling do not necessarily have "better" emotional reactions than their thinking counterparts.</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_14" class="foldclosed" onClick="show_folder('1_1_3_14')" style="POSITION: absolute">+</span> <span id="hide1_1_3_14" class="foldopened" onClick="hide_folder('1_1_3_14')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Lifestyle</span>
+<ul id="fold1_1_3_14" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_3_14_1" class="foldclosed" onClick="show_folder('1_1_3_14_1')" style="POSITION: absolute">+</span> <span id="hide1_1_3_14_1" class="foldopened" onClick="hide_folder('1_1_3_14_1')">-</span>
+<span style="color: #111111;">Judgement (J/p)</span>
+<ul id="fold1_1_3_14_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Myers and Briggs added another dimension to Jung's typological model by identifying that people also have a preference for using either the judging function (thinking or feeling) or their perceiving function (sensing or intuition) when relating to the outside world (extraversion). &nbsp;Myers and Briggs held that types with a preference for judgment show the world their preferred judging function (thinking or feeling). So TJ types tend to appear to the world as logical, and FJ types as empathetic. According to Myers,:75 judging types like to "have matters settled." Those types who prefer perception show the world their preferred perceiving function (sensing or intuition). So SP types tend to appear to the world as concrete and NP types as abstract. According to Myers,:75 perceptive types prefer to "keep decisions open." &nbsp;For extraverts, the J or P indicates their dominant function; for introverts, the J or P indicates their auxiliary function. Introverts tend to show their dominant function outwardly only in matters "important to their inner worlds.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_14_2" class="foldclosed" onClick="show_folder('1_1_3_14_2')" style="POSITION: absolute">+</span> <span id="hide1_1_3_14_2" class="foldopened" onClick="hide_folder('1_1_3_14_2')">-</span>
+<span style="color: #111111;">Perception (P/j)</span>
+<ul id="fold1_1_3_14_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Because ENTJ types are extraverts, the J indicates that their dominant function is their preferred judging function (extraverted thinking). ENTJ types introvert their auxiliary perceiving function (introverted intuition). The tertiary function is sensing and the inferior function is introverted feeling. &nbsp;Because INTJ types are introverts, the J indicates that their auxiliary function is their preferred judging function (extraverted thinking). INTJ types introvert their dominant perceiving function (introverted intuition). The tertiary function is feeling, and the inferior function is extraverted sensing.</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_15" class="foldclosed" onClick="show_folder('1_1_3_15')" style="POSITION: absolute">+</span> <span id="hide1_1_3_15" class="foldopened" onClick="hide_folder('1_1_3_15')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Dominant Function</span>
+<ul id="fold1_1_3_15" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_3_15_1" class="foldclosed" onClick="show_folder('1_1_3_15_1')" style="POSITION: absolute">+</span> <span id="hide1_1_3_15_1" class="foldopened" onClick="hide_folder('1_1_3_15_1')">-</span>
+<span style="color: #111111;">Primary</span>
+<ul id="fold1_1_3_15_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">ne function is generally used in a more conscious and confident way. This dominant function is supported by the secondary (auxiliary) function, and to a lesser degree the tertiary function. The fourth and least conscious function is always the opposite of the dominant function. Myers called this inferior function the shadow.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_1_3_15_2" class="foldclosed" onClick="show_folder('1_1_3_15_2')" style="POSITION: absolute">+</span> <span id="hide1_1_3_15_2" class="foldopened" onClick="hide_folder('1_1_3_15_2')">-</span>
+<span style="color: #111111;">Shadow</span>
+<ul id="fold1_1_3_15_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The four functions operate in conjunction with the attitudes (extraversion and introversion). Each function is used in either an extraverted or introverted way. A person whose dominant function is extraverted intuition, for example, uses intuition very differently from someone whose dominant function is introverted intuition.</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_16" class="foldclosed" onClick="show_folder('1_1_3_16')" style="POSITION: absolute">+</span> <span id="hide1_1_3_16" class="foldopened" onClick="hide_folder('1_1_3_16')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Population Breakdown</span>
+<ul id="fold1_1_3_16" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The Sixteen Types
+<br>
+US Population Breakdown
+<br>
+The table organizing the sixteen types was created by Isabel Myers (an INFP).
+<br>
+http://www.capt.org/mbti-assessment/estimated-frequencies.htm
+<br>
+
+<br>
+ISTJ
+<br>
+11&#8211;14% 	
+<br>
+ISFJ
+<br>
+9&#8211;14% 	
+<br>
+INFJ
+<br>
+1&#8211;3% 	
+<br>
+INTJ
+<br>
+2&#8211;4%
+<br>
+ISTP
+<br>
+4&#8211;6% 	
+<br>
+ISFP
+<br>
+5&#8211;9% 	
+<br>
+INFP
+<br>
+4&#8211;5% 	
+<br>
+INTP
+<br>
+3&#8211;5%
+<br>
+ESTP
+<br>
+4&#8211;5% 	
+<br>
+ESFP
+<br>
+4&#8211;9% 	
+<br>
+ENFP
+<br>
+6&#8211;8% 	
+<br>
+ENTP
+<br>
+2&#8211;5%
+<br>
+ESTJ
+<br>
+8&#8211;12% 	
+<br>
+ESFJ
+<br>
+9&#8211;13% 	
+<br>
+ENFJ
+<br>
+2&#8211;5% 	
+<br>
+ENTJ
+<br>
+2&#8211;5%</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4" class="foldclosed" onClick="show_folder('1_1_4')" style="POSITION: absolute">+</span> <span id="hide1_1_4" class="foldopened" onClick="hide_folder('1_1_4')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Mind</span>
+<ul id="fold1_1_4" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_1_4_1" class="foldclosed" onClick="show_folder('1_1_4_1')" style="POSITION: absolute">+</span> <span id="hide1_1_4_1" class="foldopened" onClick="hide_folder('1_1_4_1')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Intellect</span>
+<ul id="fold1_1_4_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Abstract thought</span>
+
+</li>
+<li><span style="color: #111111;">Understanding</span>
+
+</li>
+<li><span style="color: #111111;">Communication</span>
+
+</li>
+<li><span style="color: #111111;">Reasoning</span>
+
+</li>
+<li><span style="color: #111111;">Learning</span>
+
+</li>
+<li><span style="color: #111111;">Planning</span>
+
+</li>
+<li><span style="color: #111111;">Emotional intelligence</span>
+
+</li>
+<li><span style="color: #111111;">Problem Solving</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2" class="foldclosed" onClick="show_folder('1_1_4_2')" style="POSITION: absolute">+</span> <span id="hide1_1_4_2" class="foldopened" onClick="hide_folder('1_1_4_2')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Consciousness</span>
+<ul id="fold1_1_4_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Experience of feeling</span>
+
+</li>
+<li><span style="color: #111111;">Wakefulness</span>
+
+</li>
+<li><span style="color: #111111;">Understanding the executive control systems of the mind</span>
+
+</li>
+<li><span style="color: #111111;">Awareness</span>
+
+</li>
+<li><span style="color: #111111;">Subjective experience</span>
+
+</li>
+<li><span style="color: #111111;">Dynamic orientation and (to and from) the "self"</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_5" class="foldclosed" onClick="show_folder('1_1_5')" style="POSITION: absolute">+</span> <span id="hide1_1_5" class="foldopened" onClick="hide_folder('1_1_5')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Cognative process</span>
+<ul id="fold1_1_5" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Memory</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Association</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Concept</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Formation</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Language</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Attention</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Perception</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Action</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Problem Solving</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Mental imagery</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_6" class="foldclosed" onClick="show_folder('1_1_6')" style="POSITION: absolute">+</span> <span id="hide1_1_6" class="foldopened" onClick="hide_folder('1_1_6')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Stream consciousness</span>
+<ul id="fold1_1_6" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Full range of input not just verbal thoughts</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Awareness of thought</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Experimental techniques</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Self-reporting</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Connection to the senses</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_7" class="foldclosed" onClick="show_folder('1_1_7')" style="POSITION: absolute">+</span> <span id="hide1_1_7" class="foldopened" onClick="hide_folder('1_1_7')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Intersubjectivity</span>
+<ul id="fold1_1_7" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">First, in its weakest sense intersubjectivity refers to agreement. There is intersubjectivity between people if they agree on a given set of meanings or a definition of the situation.</span>
+<p><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Second, and more subtly intersubjectivity refers to the "common-sense," shared meanings constructed by people in their interactions with each other and used as an everyday resource to interpret the meaning of elements of social and cultural life. If people share common sense, then they share a definition of the situation.</span>
+<p><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Third, the term has been used to refer to shared (or partially shared) divergences of meaning. Self-presentation, lying, practical jokes, and social emotions, for example, all entail not a shared definition of the situation, but partially shared divergences of meaning. Someone who is telling a lie is engaged in an intersubjective act because they are working with two different definitions of the situation. Lying is thus genuinely inter-subjective (in the sense of operating between two subjective definitions of reality).</span>
+<p><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Intersubjectivity emphasizes that shared cognition and consensus is essential in the shaping of our ideas and relations. Language, quintessentially, is viewed as communal rather than private. Therefore, it is problematic to view the individual as partaking in a private world, one which has a meaning defined apart from any other subjects.</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2" class="foldclosed" onClick="show_folder('1_2')" style="POSITION: absolute">+</span> <span id="hide1_2" class="foldopened" onClick="hide_folder('1_2')">-</span>
+<span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">Body</span>
+<ul id="fold1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_2_1" class="foldclosed" onClick="show_folder('1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_2_1" class="foldopened" onClick="hide_folder('1_2_1')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Organism</span>
+<ul id="fold1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_2_1_1" class="foldclosed" onClick="show_folder('1_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_2_1_1" class="foldopened" onClick="hide_folder('1_2_1_1')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Head</span>
+<ul id="fold1_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Brain</span>
+
+</li>
+<li><span style="color: #111111;">Eyes</span>
+
+</li>
+<li><span style="color: #111111;">Ears</span>
+
+</li>
+<li><span style="color: #111111;">Nose</span>
+
+</li>
+<li><span style="color: #111111;">Mouth</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_1_2" class="foldclosed" onClick="show_folder('1_2_1_2')" style="POSITION: absolute">+</span> <span id="hide1_2_1_2" class="foldopened" onClick="hide_folder('1_2_1_2')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Neck</span>
+<ul id="fold1_2_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The neck is the part of the body, on many terrestrial or secondarily aquatic vertebrates, that distinguishes the head from the torso or trunk. The Latin term signifying "of the neck" is cervical.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_1_3" class="foldclosed" onClick="show_folder('1_2_1_3')" style="POSITION: absolute">+</span> <span id="hide1_2_1_3" class="foldopened" onClick="hide_folder('1_2_1_3')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Torso</span>
+<ul id="fold1_2_1_3" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Trunk or torso is an anatomical term for the central part of the human body from which extend the neck and limbs. The trunk includes the thorax and abdomen.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_1_4" class="foldclosed" onClick="show_folder('1_2_1_4')" style="POSITION: absolute">+</span> <span id="hide1_2_1_4" class="foldopened" onClick="hide_folder('1_2_1_4')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Arms</span>
+<ul id="fold1_2_1_4" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">In anatomy, an arm is one of the upper limbs (also called forelimbs) of an animal. The term arm can also be used for analogous structures, such as one of the paired upper limbs of a four-legged animal, or the arms of cephalopods.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_1_5" class="foldclosed" onClick="show_folder('1_2_1_5')" style="POSITION: absolute">+</span> <span id="hide1_2_1_5" class="foldopened" onClick="hide_folder('1_2_1_5')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Legs</span>
+<ul id="fold1_2_1_5" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">A leg is a weight bearing and locomotive structure, usually having a columnar shape. During locomotion, legs function as "extensible struts" - the combination of movements at all joints can be modeled as a single, linear element capable of changing length and rotating about an omnidirectional "hip" joint.</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_2" class="foldclosed" onClick="show_folder('1_2_2')" style="POSITION: absolute">+</span> <span id="hide1_2_2" class="foldopened" onClick="hide_folder('1_2_2')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Systems</span>
+<ul id="fold1_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_2_2_1" class="foldclosed" onClick="show_folder('1_2_2_1')" style="POSITION: absolute">+</span> <span id="hide1_2_2_1" class="foldopened" onClick="hide_folder('1_2_2_1')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Cardiovascular system</span>
+<ul id="fold1_2_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The cardiovascular system comprises the heart, veins, arteries and capillaries. The primary function of the heart is to circulate the blood, and through the blood, oxygen and vital minerals are transferred to the tissues and organs that comprise the body. The left side of the main organ (left ventricle and left atrium) is responsible for pumping blood to all parts of the body, while the right side (right ventricle and right atrium) pumps only to the lungs for re-oxygenation of the blood. The heart itself is divided into three layers called the endocardium, myocardium and epicardium, which vary in thickness and function.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_2_2" class="foldclosed" onClick="show_folder('1_2_2_2')" style="POSITION: absolute">+</span> <span id="hide1_2_2_2" class="foldopened" onClick="hide_folder('1_2_2_2')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Digestive system</span>
+<ul id="fold1_2_2_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The digestive system provides the body's means of processing food and transforming nutrients into energy. The digestive system consists of the - buccal cavity, esophagus, stomach, small intestine, large intestine ending in the rectum and anus. These parts together are called the alimentary canal (digestive tract).</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_2_3" class="foldclosed" onClick="show_folder('1_2_2_3')" style="POSITION: absolute">+</span> <span id="hide1_2_2_3" class="foldopened" onClick="hide_folder('1_2_2_3')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Integumentary system</span>
+<ul id="fold1_2_2_3" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The integumentary system is the largest organ system in the human body, and is responsible for protecting the body from most physical and environmental factors. The largest organ in the body, is the skin. The integument also includes appendages, primarily the sweat and sebaceous glands, hair, nails and arrectores pili (tiny muscles at the root of each hair that cause goose bumps).</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_2_4" class="foldclosed" onClick="show_folder('1_2_2_4')" style="POSITION: absolute">+</span> <span id="hide1_2_2_4" class="foldopened" onClick="hide_folder('1_2_2_4')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Lymphatic system</span>
+<ul id="fold1_2_2_4" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The main function of the lymphatic system is to extract, transport and metabolise lymph, the fluid found in between cells. The lymphatic system is very similar to the circulatory system in terms of both its structure and its most basic function (to carry a body fluid).</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_2_5" class="foldclosed" onClick="show_folder('1_2_2_5')" style="POSITION: absolute">+</span> <span id="hide1_2_2_5" class="foldopened" onClick="hide_folder('1_2_2_5')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Musculoskeletal system</span>
+<ul id="fold1_2_2_5" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The human musculoskeletal system consists of the human skeleton, made by bones attached to other bones with joints, and skeletal muscle attached to the skeleton by tendons.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_2_6" class="foldclosed" onClick="show_folder('1_2_2_6')" style="POSITION: absolute">+</span> <span id="hide1_2_2_6" class="foldopened" onClick="hide_folder('1_2_2_6')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Bones</span>
+<ul id="fold1_2_2_6" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">An adult human has approximately 206 distinct bones:
+<br>
+
+<br>
+ &nbsp;&nbsp;&nbsp;Spine and vertebral column (26)
+<br>
+ &nbsp;&nbsp;&nbsp;Cranium (8)
+<br>
+ &nbsp;&nbsp;&nbsp;Face (14)
+<br>
+ &nbsp;&nbsp;&nbsp;Hyoid bone, sternum and ribs (26)
+<br>
+ &nbsp;&nbsp;&nbsp;Upper extremities (70)
+<br>
+ &nbsp;&nbsp;&nbsp;Lower extremities (62) </span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_2_7" class="foldclosed" onClick="show_folder('1_2_2_7')" style="POSITION: absolute">+</span> <span id="hide1_2_2_7" class="foldopened" onClick="hide_folder('1_2_2_7')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Nervous system</span>
+<ul id="fold1_2_2_7" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">The nervous system consists of cells that communicate information about an organism's surroundings and itself.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_2_2_8" class="foldclosed" onClick="show_folder('1_2_2_8')" style="POSITION: absolute">+</span> <span id="hide1_2_2_8" class="foldopened" onClick="hide_folder('1_2_2_8')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Reproductive system</span>
+<ul id="fold1_2_2_8" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #111111;">Human reproduction takes place as internal fertilization by sexual intercourse. During this process, the erect penis of the male is inserted into the female's vagina until the male ejaculates semen, which contains sperm, into the female's vagina. The sperm then travels through the vagina and cervix into the uterus or fallopian tubes for fertilization of the ovum. &nbsp;The human male reproductive system is a series of organs located outside the body and around the pelvic region of a male that contribute towards the reproductive process. The primary direct function of the male reproductive system is to provide the male gamete or spermatozoa for fertilization of the ovum. &nbsp;The major reproductive organs of the male can be grouped into three categories. The first category is sperm production and storage. Production takes place in the testes which are housed in the temperature regulating scrotum, immature sperm then travel to the epididymis for development and storage. The second category are the ejaculatory fluid producing glands which include the seminal vesicles, prostate, and the vas deferens. The final category are those used for copulation, and deposition of the spermatozoa (sperm) within the female, these include the penis, urethra, vas deferens and Cowper's gland. &nbsp;The human female reproductive system is a series of organs primarily located inside of the body and around the pelvic region of a female that contribute towards the reproductive process. The human female reproductive system contains three main parts: the vagina, which acts as the receptacle for the male's sperm, the uterus, which holds the developing fetus, and the ovaries, which produce the female's ova. The breasts are also an important reproductive organ during the parenting stage of reproduction. &nbsp;The vagina meets the outside at the vulva, which also includes the labia, clitoris and urethra; during intercourse this area is lubricated by mucus secreted by the Bartholin's glands. The vagina is attached to the uterus through the cervix, while the uterus is attached to the ovaries via the fallopian tubes. At certain intervals, typically approximately every 28 days, the ovaries release an ovum, which passes through the fallopian tube into the uterus. The lining of the uterus, called the endometrium, and unfertilized ova are shed each cycle through a process known as menstruation.</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3" class="foldclosed" onClick="show_folder('1_3')" style="POSITION: absolute">+</span> <span id="hide1_3" class="foldopened" onClick="hide_folder('1_3')">-</span>
+<span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">Environment</span>
+<ul id="fold1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_3_1" class="foldclosed" onClick="show_folder('1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_3_1" class="foldopened" onClick="hide_folder('1_3_1')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Problem Oriented</span>
+<ul id="fold1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Environmental psychology is a direct study of the relationship between an environment and how that environment affects its inhabitants. Specific aspects of this field work by identifying a problem and through the identification of said problem, discovering a solution. Therefore it is necessary for environmental psychology to be problem oriented. The problems identified by environmental psychologists affect all members of society. These problems can be anything from the psychological effects of urban crowding to the architectural design of public schools and extend from the public arena into the individual household.
+<br>
+Windows - particularly ones that can be opened and ones that provide a view as well as light
+<br>
+
+<br>
+High ceilings
+<br>
+
+<br>
+Doors to divide spaces (Baum and Davies) and provide access control
+<br>
+
+<br>
+Room shape - square rooms feel less crowded than rectangular ones (Dresor)
+<br>
+
+<br>
+Using partitions to create smaller, personalized spaces within an open plan office or larger work space.
+<br>
+
+<br>
+Providing increases in cognitive control over aspects of the internal environment, such as ventilation, light, privacy, etc.
+<br>
+
+<br>
+Conducting a cognitive appraisal of an environment and feelings of crowding in different settings. For example, one might be comfortable with crowding at a concert but not in school corridors.
+<br>
+
+<br>
+Creating a defensible space (Calhoun)
+<br>
+
+<br>
+
+<br>
+Having an area of personal territory in a public space, e.g. at the office, is a key feature of many architectural designs. Having such a 'defensible space' can reduce the negative effects of crowding in urban environments. The term, coined by John B. Calhoun in 1947, is the result of multiple environmental experiments conducted on rats. Originally beginning as an experiment to measure how many rats could be accommodated in a given space, it expanded into determining how rats, given the proper food, shelter and bedding would behave under a confined environment.
+<br>
+
+<br>
+Under these circumstances, the males became aggressive, some exclusively homosexual. Others became pansexual and hypersexual, seeking every chance to mount any rat they encountered. As a result, mating behaviors were upset with an increase in infant mortalities. With parents failing to provide proper nests, thoughtlessly ditching their young and even attacking them, infant mortality rose as high as 96% in certain sections. Calhoun published the results as "Population Density and Social Pathology" in a 1962 edition of Scientific American.
+<br>
+
+<br>
+Creating barriers and customizing the space are ways of creating personal space, e.g. using pictures of one's family in an office setting. This increases cognitive control as one sees oneself as having control over the competitors to the personal space and therefore able to control the level of density and crowding in the space.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_3_2" class="foldclosed" onClick="show_folder('1_3_2')" style="POSITION: absolute">+</span> <span id="hide1_3_2" class="foldopened" onClick="hide_folder('1_3_2')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">System Oriented</span>
+<ul id="fold1_3_2" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">The systems oriented approach to experimenting is applied to individuals or people that are a part of communities, groups, and organizations. This approach particularly examines group interaction, as opposed to an individual&#8217;s interaction and it emphasizes on factors of social integration. In the laboratory, experiments focus on cause and effect processes within human nature.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_3_3" class="foldclosed" onClick="show_folder('1_3_3')" style="POSITION: absolute">+</span> <span id="hide1_3_3" class="foldopened" onClick="hide_folder('1_3_3')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Interdisciplinary Oriented</span>
+<ul id="fold1_3_3" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Environmental psychology relies on interaction with other disciplines in order to approach problems with multiple perspectives. The first discipline is the category of behavioral sciences, which include: sociology, political science, anthropology, and economics. Environmental psychology also interacts with the interspecializations of the field of psychology, which include: developmental psychology, cognitive science, organization theory, psychobiology, and social neuroscience. In addition to the more scientific fields of study, environmental psychology also works with the design field which includes: the studies of architecture, interior design, urban planning, industrial and object design, landscape architecture, and preservation.</span>
+</li>
+</ul>
+</li>
+<li><span id="show1_3_4" class="foldclosed" onClick="show_folder('1_3_4')" style="POSITION: absolute">+</span> <span id="hide1_3_4" class="foldopened" onClick="hide_folder('1_3_4')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Space-over-time Oriented</span>
+<ul id="fold1_3_4" style="POSITION: relative; VISIBILITY: visible;"><li><p><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Space over time orientation highlights the importance of the past. Examining problems with the past in mind creates a better understanding of how past forces, such as social, political, and economic forces, may be of relevance to present and future problems. Time and place are also important to consider. It&#8217;s important to look at time over extended periods. Physical settings change over time; they change with respect to physical properties and they change because individuals using the space change over time. Looking at these spaces over time will help monitor the changes and possibly predict future problems. &nbsp;There are a variety of tests that can be administered to children in order to determine their temperament. Temperament is split up into three types: &#8220;easy&#8221;, &#8220;difficult&#8221;, and &#8220;slow-to-warm-up&#8221;. Alexander Thomas, Stella Chess, Herbert G. Birch, Margaret Hertzig and Sam Korn created an infant temperament test in the 1950s and rated them using nine temperament criteria. By finding out a child&#8217;s temperament at birth, it enables us to know what to expect as the child progresses into adulthood.</span>
+</li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4" class="foldclosed" onClick="show_folder('1_4')" style="POSITION: absolute">+</span> <span id="hide1_4" class="foldopened" onClick="hide_folder('1_4')">-</span>
+<span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">DATA PROCESS</span>
+<ul id="fold1_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">This side of the body is devoted to capacity.</span>
+
+</li>
+<li><span id="show1_4_1" class="foldclosed" onClick="show_folder('1_4_1')" style="POSITION: absolute">+</span> <span id="hide1_4_1" class="foldopened" onClick="hide_folder('1_4_1')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">Encoding process</span>
+<ul id="fold1_4_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Memory filed with emtional (eBIT) attachment</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Memory filed with logical (BIT) attachment</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Memory filed with both (eBIT) and (BIT) attachment</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Memory filed without (eBIT) or (BIT) attachment</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5" class="foldclosed" onClick="show_folder('1_5')" style="POSITION: absolute">+</span> <span id="hide1_5" class="foldopened" onClick="hide_folder('1_5')">-</span>
+<span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">DATA PROCESSING</span>
+<ul id="fold1_5" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1" class="foldclosed" onClick="show_folder('1_5_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1" class="foldopened" onClick="hide_folder('1_5_1')">-</span>
+<span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">If true then else structure</span>
+<ul id="fold1_5_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1" class="foldclosed" onClick="show_folder('1_5_1_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1" class="foldopened" onClick="hide_folder('1_5_1_1')">-</span>
+<span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">Shadow / Realistic Buffer</span>
+<ul id="fold1_5_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1_1" class="foldclosed" onClick="show_folder('1_5_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1" class="foldopened" onClick="hide_folder('1_5_1_1_1')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">DATA COLLECTION</span>
+<ul id="fold1_5_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1_1_1" class="foldclosed" onClick="show_folder('1_5_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_1" class="foldopened" onClick="hide_folder('1_5_1_1_1_1')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">You know</span>
+<ul id="fold1_5_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Collected (+1) &nbsp;correctly</span>
+
+</li>
+<li><span id="show1_5_1_1_1_1_1" class="foldclosed" onClick="show_folder('1_5_1_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_1_1" class="foldopened" onClick="hide_folder('1_5_1_1_1_1_1')">-</span>
+<span style="color: #111111;">Logical (BIT) attached for easy retrieval</span>
+<ul id="fold1_5_1_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Known data input</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Emotion (eBIT) attach attempted</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_1_1_1_2" class="foldclosed" onClick="show_folder('1_5_1_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_2" class="foldopened" onClick="hide_folder('1_5_1_1_1_2')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">You don't know</span>
+<ul id="fold1_5_1_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Collected (+1) &nbsp;in fragment</span>
+
+</li>
+<li><span style="color: #111111;">Logical (BIT) attach attempted</span>
+
+</li>
+<li><span style="color: #111111;">Emotional (eBIT) attach attempted</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Feelings</span>
+
+</li>
+<li><span id="show1_5_1_1_1_3" class="foldclosed" onClick="show_folder('1_5_1_1_1_3')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3" class="foldopened" onClick="hide_folder('1_5_1_1_1_3')">-</span>
+<span style="color: #111111;">DATA COLLECTION</span>
+<ul id="fold1_5_1_1_1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1_1_3_1" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">DATA COLLECTION</span>
+<ul id="fold1_5_1_1_1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1_1_3_1_1" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_1" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_1')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">Brain</span>
+<ul id="fold1_5_1_1_1_3_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1_1_3_1_1_1" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_1_1" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_1_1')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">Loss / Gain</span>
+<ul id="fold1_5_1_1_1_3_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1_1_3_1_1_1_1" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_1_1_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_1_1_1" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_1_1_1')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">Loosing</span>
+<ul id="fold1_5_1_1_1_3_1_1_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Energy</span>
+
+</li>
+<li><span style="color: #111111;">Time</span>
+
+</li>
+<li><span style="color: #111111;">Money</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_1_1_1_3_1_1_1_2" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_1_1_2')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_1_1_2" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_1_1_2')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">Gaining</span>
+<ul id="fold1_5_1_1_1_3_1_1_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Energy</span>
+
+</li>
+<li><span style="color: #111111;">Time</span>
+
+</li>
+<li><span style="color: #111111;">Money</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_1_1_1_3_1_2" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_2')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_2" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_2')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">Body</span>
+<ul id="fold1_5_1_1_1_3_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1_1_3_1_2_1" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_2_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_2_1" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_2_1')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">Pain / Pleasure</span>
+<ul id="fold1_5_1_1_1_3_1_2_1" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1_1_3_1_2_1_1" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_2_1_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_2_1_1" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_2_1_1')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">Pain</span>
+<ul id="fold1_5_1_1_1_3_1_2_1_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Hurts</span>
+
+</li>
+<li><span style="color: #111111;">Does not hurt</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_1_1_1_3_1_2_1_2" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_2_1_2')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_2_1_2" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_2_1_2')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">Pleasure</span>
+<ul id="fold1_5_1_1_1_3_1_2_1_2" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Feels good</span>
+
+</li>
+<li><span style="color: #111111;">Does not feel good</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_1_1_1_3_1_3" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_3')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_3" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_3')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">Environment</span>
+<ul id="fold1_5_1_1_1_3_1_3" style="POSITION: relative; VISIBILITY: visible;"><li><span id="show1_5_1_1_1_3_1_3_1" class="foldclosed" onClick="show_folder('1_5_1_1_1_3_1_3_1')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_3_1_3_1" class="foldopened" onClick="hide_folder('1_5_1_1_1_3_1_3_1')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">&#xd;&#xa;    <p>&#xd;&#xa;      Environment Awareness&#xd;&#xa;    </p>&#xd;&#xa;  </span>
+<ul id="fold1_5_1_1_1_3_1_3_1" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;font-family: SansSerif, sans-serif; ">Safe</span>
+
+</li>
+<li><span style="color: #111111;font-family: SansSerif, sans-serif; ">Unsafe</span>
+
+</li>
+
+</ul></li>
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">Emotions</span>
+
+</li>
+<li><span id="show1_5_1_1_1_4" class="foldclosed" onClick="show_folder('1_5_1_1_1_4')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_4" class="foldopened" onClick="hide_folder('1_5_1_1_1_4')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">You think you know</span>
+<ul id="fold1_5_1_1_1_4" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Collected (-1) incorrectly</span>
+
+</li>
+<li><span style="color: #111111;">Logical (BIT) attachment attempted</span>
+
+</li>
+<li><span style="color: #111111;">Emotion (BIT) attached for easy retrieval</span>
+
+</li>
+<li><span style="color: #111111;">The body will need to retrieve this information and so attaches an (eBIT)</span>
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5_1_1_1_5" class="foldclosed" onClick="show_folder('1_5_1_1_1_5')" style="POSITION: absolute">+</span> <span id="hide1_5_1_1_1_5" class="foldopened" onClick="hide_folder('1_5_1_1_1_5')">-</span>
+<span style="color: #111111;font-family: SansSerif, sans-serif; ">You know you don't know</span>
+<ul id="fold1_5_1_1_1_5" style="POSITION: relative; VISIBILITY: visible;"><li><span style="color: #111111;">Collected (-1) &nbsp;in fragment</span>
+
+</li>
+<li><span style="color: #111111;">Logical (BIT) attached</span>
+
+</li>
+<li><span style="color: #111111;">Emotional (eBIT) attached</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">If false then (+1 = -1) and (-1 = +1)</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul><SCRIPT type="text/javascript">
+fold_document();
+</SCRIPT>
+</body>
+</html>
